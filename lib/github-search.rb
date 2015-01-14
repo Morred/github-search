@@ -1,5 +1,8 @@
 require "github-search/version"
+require "github-search/issue"
 
 module GithubSearch
-  # Your code goes here...
+  
+  API_URL = "https://api.github.com/search"
+
 end
