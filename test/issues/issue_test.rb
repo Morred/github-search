@@ -6,10 +6,12 @@ class IssueTest < Minitest::Test
   end
 
   def test_returns_issues
+
     VCR.use_cassette('repository_issues') do
-      issues = GithubSearch::Issue.search(repository: "Morred/example")
-      first_issue = issues.first
-      assert_equal GithubSearch::Issue, first_issue.class
+      result = GithubSearch::Issue.search("test", "issue", repo: "Morred/github-search", label: "enhancement")
+      puts result.inspect
+      assert_equal Array, result.class
+      assert_equal GithubSearch::Issue, result.first.class
 
       # Check that the fields are accessible by our model
       # assert_equal 68, car.id
