@@ -1,4 +1,4 @@
-# GithubSearch
+# GithubSearch [![Build Status](https://travis-ci.org/Morred/github-search.svg?branch=master)](https://travis-ci.org/Morred/github-search)
 
 TODO: Write a gem description
 
