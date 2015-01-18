@@ -3,24 +3,63 @@ require 'json'
 
 module GithubSearch
   class Issue
-    attr_reader :id
+    attr_reader :id,
+                :number,
+                :title,
+                :body,
+                :url,
+                :labels_url,
+                :comments_url,
+                :events_url,
+                :html_url,
+                :user,
+                :labels,
+                :state,
+                :locked,
+                :assignee,
+                :milestone,
+                :comments,
+                :created_at,
+                :updated_at,
+                :closed_at,
+                :score
+
+    def initialize(attributes)
+      @id = attributes["id"]
+      @number = attributes["number"]
+      @title = attributes["title"]
+      @body = attributes["body"]
+      @url = attributes["url"]
+      @labels_url = attributes["labels_url"]
+      @comments_url = attributes["comments_url"]
+      @events_url = attributes["events_url"]
+      @html_url = attributes["html_url"]
+      @user = attributes["user"]
+      @labels = attributes["labels"]
+      @state = attributes["state"]
+      @locked = attributes["locked"]
+      @assignee = attributes["assignee"]
+      @milestone = attributes["milestone"]
+      @comments = attributes["comments"]
+      @created_at = attributes["created_at"]
+      @updated_at = attributes["updated_at"]
+      @closed_at = attributes["closed_at"]
+      @score = attributes["score"]
+    end
 
     def self.path
       "issues"
     end
 
     def self.search(*args, opts)
-
       search_string = build_search_string(args, opts)
-      puts path
 
       response = Faraday.get("#{API_URL}/#{path}#{search_string}")
-      attributes = JSON.parse(response.body)
-      attributes["items"]
+      items = JSON.parse(response.body)["items"]
+      items.map { |attributes| new(attributes) }
     end
 
     def self.build_search_string(args, opts)
-
       args_string = args_untangler(args)
       opts_string = opts_untangler(opts)
 
