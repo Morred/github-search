@@ -1,4 +1,5 @@
-# GithubSearch [![Build Status](https://travis-ci.org/Morred/github-search.svg?branch=master)](https://travis-ci.org/Morred/github-search)
+# GithubSearch 
+[![Build Status](https://travis-ci.org/Morred/github-search.svg?branch=master)](https://travis-ci.org/Morred/github-search) [![Code Climate](https://codeclimate.com/github/Morred/github-search/badges/gpa.svg)](https://codeclimate.com/github/Morred/github-search)
 
 TODO: Write a gem description
 
