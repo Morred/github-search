@@ -7,7 +7,8 @@ class RepositoryTest < Minitest::Test
 
   def test_returns_repositories
     VCR.use_cassette('search_repositories') do
-      result = GithubSearch::Repository.search("github", user: "Morred", fork: false)
+      github = GithubSearch::Searcher.new
+      result = github.repos.search("github", user: "Morred", fork: false)
 
       assert_equal Array, result.class
       assert_equal 1, result.length

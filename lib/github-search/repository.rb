@@ -143,13 +143,5 @@ module GithubSearch
       @score                = attributes["score"]
     end
 
-    def self.path
-      "repositories"
-    end
-
-    def self.search(*args, opts)
-      super
-    end
-
   end
 end

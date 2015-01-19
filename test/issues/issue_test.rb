@@ -8,7 +8,8 @@ class IssueTest < Minitest::Test
   def test_returns_issues
 
     VCR.use_cassette('search_issues') do
-      result = GithubSearch::Issue.search("test", "issue", repo: "Morred/github-search", label: "enhancement")
+      github = GithubSearch::Searcher.new
+      result = github.issues.search("test", "issue", repo: "Morred/github-search", label: "enhancement" )
 
       assert_equal Array, result.class
       assert_equal 2, result.length

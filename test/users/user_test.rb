@@ -7,7 +7,8 @@ class UserTest < Minitest::Test
 
   def test_returns_users
     VCR.use_cassette('search_users') do
-      result = GithubSearch::User.search("morred", type: "User")
+      github = GithubSearch::Searcher.new
+      result = github.users.search("morred", type: "User")
 
       assert_equal Array, result.class
       assert_equal 3, result.length
