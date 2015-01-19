@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/search/users?q=morred%20type:User
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 19 Jan 2015 12:21:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '9'
+      X-Ratelimit-Reset:
+      - '1421670158'
+      Cache-Control:
+      - no-cache
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 72A7C5D7:2985:E66093:54BCF6D1
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+      X-Served-By:
+      - 8dd185e423974a7e13abbbe6e060031e
+    body:
+      encoding: UTF-8
+      string: '{"total_count":3,"incomplete_results":false,"items":[{"login":"Morred","id":4008608,"avatar_url":"https://avatars.githubusercontent.com/u/4008608?v=3","gravatar_id":"","url":"https://api.github.com/users/Morred","html_url":"https://github.com/Morred","followers_url":"https://api.github.com/users/Morred/followers","following_url":"https://api.github.com/users/Morred/following{/other_user}","gists_url":"https://api.github.com/users/Morred/gists{/gist_id}","starred_url":"https://api.github.com/users/Morred/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Morred/subscriptions","organizations_url":"https://api.github.com/users/Morred/orgs","repos_url":"https://api.github.com/users/Morred/repos","events_url":"https://api.github.com/users/Morred/events{/privacy}","received_events_url":"https://api.github.com/users/Morred/received_events","type":"User","site_admin":false,"score":61.729008},{"login":"morredilma","id":9913642,"avatar_url":"https://avatars.githubusercontent.com/u/9913642?v=3","gravatar_id":"","url":"https://api.github.com/users/morredilma","html_url":"https://github.com/morredilma","followers_url":"https://api.github.com/users/morredilma/followers","following_url":"https://api.github.com/users/morredilma/following{/other_user}","gists_url":"https://api.github.com/users/morredilma/gists{/gist_id}","starred_url":"https://api.github.com/users/morredilma/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/morredilma/subscriptions","organizations_url":"https://api.github.com/users/morredilma/orgs","repos_url":"https://api.github.com/users/morredilma/repos","events_url":"https://api.github.com/users/morredilma/events{/privacy}","received_events_url":"https://api.github.com/users/morredilma/received_events","type":"User","site_admin":false,"score":9.908167},{"login":"morredor","id":357475,"avatar_url":"https://avatars.githubusercontent.com/u/357475?v=3","gravatar_id":"","url":"https://api.github.com/users/morredor","html_url":"https://github.com/morredor","followers_url":"https://api.github.com/users/morredor/followers","following_url":"https://api.github.com/users/morredor/following{/other_user}","gists_url":"https://api.github.com/users/morredor/gists{/gist_id}","starred_url":"https://api.github.com/users/morredor/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/morredor/subscriptions","organizations_url":"https://api.github.com/users/morredor/orgs","repos_url":"https://api.github.com/users/morredor/repos","events_url":"https://api.github.com/users/morredor/events{/privacy}","received_events_url":"https://api.github.com/users/morredor/received_events","type":"User","site_admin":false,"score":7.9265337}]}'
+    http_version: 
+  recorded_at: Mon, 19 Jan 2015 12:21:37 GMT
+recorded_with: VCR 2.9.3

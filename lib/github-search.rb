@@ -2,6 +2,7 @@ require "github-search/version"
 require "github-search/searcher"
 require "github-search/issue"
 require "github-search/repository"
+require "github-search/user"
 
 module GithubSearch
   
