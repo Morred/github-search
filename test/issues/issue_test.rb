@@ -7,7 +7,7 @@ class IssueTest < Minitest::Test
 
   def test_returns_issues
 
-    VCR.use_cassette('repository_issues') do
+    VCR.use_cassette('search_issues') do
       result = GithubSearch::Issue.search("test", "issue", repo: "Morred/github-search", label: "enhancement")
 
       assert_equal Array, result.class
@@ -34,7 +34,7 @@ class IssueTest < Minitest::Test
       assert_equal "2015-01-15T14:02:14Z", result.first.created_at
       assert_equal "2015-01-15T14:02:20Z", result.first.updated_at
       assert_equal nil, result.first.closed_at
-      assert_equal 10.845191, result.first.score
+      assert_equal 10.624432, result.first.score
     end
   end
 end

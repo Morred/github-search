@@ -4,15 +4,12 @@ require 'json'
 module GithubSearch
   class Searcher
 
-    # def self.path
-    #   "repositories"
-    # end
-
     def self.search(*args, opts)
       search_string = build_search_string(args, opts)
 
       response = Faraday.get("#{API_URL}/#{path}#{search_string}")
       items = JSON.parse(response.body)["items"]
+      puts items.inspect
       items.map { |attributes| new(attributes) }
     end
 

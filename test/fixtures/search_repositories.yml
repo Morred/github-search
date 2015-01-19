@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/search/repositories?q=github%20user:Morred%20fork:false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Mon, 19 Jan 2015 10:57:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '9'
+      X-Ratelimit-Reset:
+      - '1421665102'
+      Cache-Control:
+      - no-cache
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 72A7C5D7:1D6D:B0EE22:54BCE312
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+      X-Served-By:
+      - c6c65e5196703428e7641f7d1e9bc353
+    body:
+      encoding: UTF-8
+      string: '{"total_count":1,"incomplete_results":false,"items":[{"id":29250518,"name":"github-search","full_name":"Morred/github-search","owner":{"login":"Morred","id":4008608,"avatar_url":"https://avatars.githubusercontent.com/u/4008608?v=3","gravatar_id":"","url":"https://api.github.com/users/Morred","html_url":"https://github.com/Morred","followers_url":"https://api.github.com/users/Morred/followers","following_url":"https://api.github.com/users/Morred/following{/other_user}","gists_url":"https://api.github.com/users/Morred/gists{/gist_id}","starred_url":"https://api.github.com/users/Morred/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Morred/subscriptions","organizations_url":"https://api.github.com/users/Morred/orgs","repos_url":"https://api.github.com/users/Morred/repos","events_url":"https://api.github.com/users/Morred/events{/privacy}","received_events_url":"https://api.github.com/users/Morred/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/Morred/github-search","description":"","fork":false,"url":"https://api.github.com/repos/Morred/github-search","forks_url":"https://api.github.com/repos/Morred/github-search/forks","keys_url":"https://api.github.com/repos/Morred/github-search/keys{/key_id}","collaborators_url":"https://api.github.com/repos/Morred/github-search/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/Morred/github-search/teams","hooks_url":"https://api.github.com/repos/Morred/github-search/hooks","issue_events_url":"https://api.github.com/repos/Morred/github-search/issues/events{/number}","events_url":"https://api.github.com/repos/Morred/github-search/events","assignees_url":"https://api.github.com/repos/Morred/github-search/assignees{/user}","branches_url":"https://api.github.com/repos/Morred/github-search/branches{/branch}","tags_url":"https://api.github.com/repos/Morred/github-search/tags","blobs_url":"https://api.github.com/repos/Morred/github-search/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/Morred/github-search/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/Morred/github-search/git/refs{/sha}","trees_url":"https://api.github.com/repos/Morred/github-search/git/trees{/sha}","statuses_url":"https://api.github.com/repos/Morred/github-search/statuses/{sha}","languages_url":"https://api.github.com/repos/Morred/github-search/languages","stargazers_url":"https://api.github.com/repos/Morred/github-search/stargazers","contributors_url":"https://api.github.com/repos/Morred/github-search/contributors","subscribers_url":"https://api.github.com/repos/Morred/github-search/subscribers","subscription_url":"https://api.github.com/repos/Morred/github-search/subscription","commits_url":"https://api.github.com/repos/Morred/github-search/commits{/sha}","git_commits_url":"https://api.github.com/repos/Morred/github-search/git/commits{/sha}","comments_url":"https://api.github.com/repos/Morred/github-search/comments{/number}","issue_comment_url":"https://api.github.com/repos/Morred/github-search/issues/comments/{number}","contents_url":"https://api.github.com/repos/Morred/github-search/contents/{+path}","compare_url":"https://api.github.com/repos/Morred/github-search/compare/{base}...{head}","merges_url":"https://api.github.com/repos/Morred/github-search/merges","archive_url":"https://api.github.com/repos/Morred/github-search/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/Morred/github-search/downloads","issues_url":"https://api.github.com/repos/Morred/github-search/issues{/number}","pulls_url":"https://api.github.com/repos/Morred/github-search/pulls{/number}","milestones_url":"https://api.github.com/repos/Morred/github-search/milestones{/number}","notifications_url":"https://api.github.com/repos/Morred/github-search/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/Morred/github-search/labels{/name}","releases_url":"https://api.github.com/repos/Morred/github-search/releases{/id}","created_at":"2015-01-14T15:24:13Z","updated_at":"2015-01-18T15:06:53Z","pushed_at":"2015-01-18T15:06:52Z","git_url":"git://github.com/Morred/github-search.git","ssh_url":"git@github.com:Morred/github-search.git","clone_url":"https://github.com/Morred/github-search.git","svn_url":"https://github.com/Morred/github-search","homepage":null,"size":0,"stargazers_count":0,"watchers_count":0,"language":"Ruby","has_issues":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"open_issues_count":3,"forks":0,"open_issues":3,"watchers":0,"default_branch":"master","score":1.5138767}]}'
+    http_version: 
+  recorded_at: Mon, 19 Jan 2015 10:57:22 GMT
+recorded_with: VCR 2.9.3
