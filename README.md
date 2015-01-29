@@ -21,8 +21,10 @@ You can currently search issues, repositories and users.
 
 Example:
 ```ruby
-result = github.issues.search("test", "issue", repo: "Morred/github-search", language: "Ruby")
+result = github.issues.search("test", "foo", repo: "Morred/github-search", language: "Ruby")
 ```
+
+Search for any number of keywords as strings (such as "test" and "foo" in the above example) as well as search qualifiers (such as repo and language in the above example).
 
 Currently supported issue search qualifiers are:
 
