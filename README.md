@@ -19,6 +19,11 @@ You can currently search issues, repositories and users.
 
 ## Searching Issues
 
+Example:
+```ruby
+result = github.issues.search("test", "issue", repo: "Morred/github-search", language: "Ruby")
+```
+
 Currently supported issue search qualifiers are:
 
 **type**  
