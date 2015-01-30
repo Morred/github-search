@@ -3,7 +3,7 @@
 
 A wrapper gem for the Github Search API.
 
-See the official documentation for the Github Search API here: [https://developer.github.com/v3/search/]
+See the official documentation for the Github Search API here: https://developer.github.com/v3/search/
 
 ## Searching
 
@@ -89,10 +89,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install github-search
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 

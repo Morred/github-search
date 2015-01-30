@@ -39,12 +39,4 @@ class IssueTest < Minitest::Test
     end
   end
 
-  # def test_order_issues
-  #   VCR.use_cassette('search_issues') do
-  #     github = GithubSearch::Searcher.new
-  #     result = github.issues.search("test", "issue", repo: "Morred/github-search", label: "enhancement", order_by: :created )
-
-
-  #   end
-  end
 end
