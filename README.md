@@ -34,50 +34,50 @@ Finds issues or pull requests that are assigned to a certain user.
 Finds issues or pull requests created by a certain user.  
 **closed**  
 Filters issues or pull requests based on the date when they were closed.  
-*Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03* 
+*Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
 **commenter**  
-Finds issues or pull requests that a certain user commented on. 
+Finds issues or pull requests that a certain user commented on.  
 **comments**  
 Filters issues or pull requests based on the quantity of comments.  
-*Values: e.g. >500, 50..100* 
+*Values: e.g. >500, 50..100*  
 **created**  
-Filters issues or pull requests based on date of creation. 
-*Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03* 
+Filters issues or pull requests based on date of creation.  
+*Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
 **in**  
 Qualifies which fields are searched. With this qualifier you can restrict the search to just the title, body, comments, or any combination of these.  
-*Values: title, body, comment* 
+*Values: title, body, comment*  
 **involves**  
-Finds issues or pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user.
+Finds issues or pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user.  
 **is**  
 Searches for items within repositories that match a certain state, such as open, closed, or merged.  
-*Values: open, closed, unmerged, merged, pr, issue* 
+*Values: open, closed, unmerged, merged, pr, issue*  
 **labels**  
-Filters issues or pull requests based on their labels. 
+Filters issues or pull requests based on their labels.  
 **language**  
-Searches for issues or pull requests within repositories that match a certain language. 
+Searches for issues or pull requests within repositories that match a certain language.  
 **mentions**  
-Finds issues or pull requests that mention a certain user.
+Finds issues or pull requests that mention a certain user.  
 **merged**  
 Filters pull requests based on the date when they were merged.  
 *Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
 **no**  
 Filters items missing certain metadata, such as label, milestone, or assignee.  
-*Values: label, milestone, assignee*
+*Values: label, milestone, assignee*  
 **repo**  
-Limits searches to a specific repository. 
+Limits searches to a specific repository.  
 **state**  
 Filter issues or pull requests based on whether they’re open or closed.  
-*Values: open, closed* 
+*Values: open, closed*  
 **team**  
 For organizations you’re a member of, finds issues or pull requests that @mention a team within the organization.  
 **type**  
 With this qualifier you can restrict the search to issues or pull request only.  
-*Values: pr, issue* 
+*Values: pr, issue*  
 **updated**  
 Filters issues or pull requests based on when they were last updated.  
 *Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
 **user**  
-Limits searches to a specific user. 
+Limits searches to a specific user.  
 
 ## Installation
 
