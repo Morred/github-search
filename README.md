@@ -29,9 +29,9 @@ Search for any number of keywords as strings (such as "test" and "foo" in the ab
 Currently supported issue search qualifiers are:
 
 **assignee**  
-Finds issues or pull requests that are assigned to a certain user.
+Finds issues or pull requests that are assigned to a certain user.  
 **author**  
-Finds issues or pull requests created by a certain user.
+Finds issues or pull requests created by a certain user.  
 **closed**  
 Filters issues or pull requests based on the date when they were closed.  
 *Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03* 
@@ -40,7 +40,7 @@ Finds issues or pull requests that a certain user commented on.
 **comments**  
 Filters issues or pull requests based on the quantity of comments.  
 *Values: e.g. >500, 50..100* 
-**created**
+**created**  
 Filters issues or pull requests based on date of creation. 
 *Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03* 
 **in**  
@@ -76,7 +76,7 @@ With this qualifier you can restrict the search to issues or pull request only.
 **updated**  
 Filters issues or pull requests based on when they were last updated.  
 *Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
-**user** 
+**user**  
 Limits searches to a specific user. 
 
 ## Installation
