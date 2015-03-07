@@ -87,4 +87,42 @@ class RepositoryTest < Minitest::Test
       assert_equal 1.5138767, result.first.score
     end
   end
+
+  def test_can_sort
+    VCR.use_cassette('search_repositories_sort') do
+      github = GithubSearch::Searcher.new
+      result = github.repos.search("client", user: "jwaterfaucett", sort: :updated)
+
+      assert_equal Array, result.class
+      assert_equal GithubSearch::Repository, result.first.class
+
+      result.each do |bla|
+        puts bla.updated_at
+      end
+
+      assert result[1].updated_at < result[0].updated_at
+      assert result[2].updated_at < result[1].updated_at
+      assert result[3].updated_at < result[2].updated_at
+    end
+  end
+
+  def test_can_order
+    VCR.use_cassette('search_repositories_order') do
+      github = GithubSearch::Searcher.new
+      result = github.repos.search("client",user: "jwaterfaucett", sort: :updated, order: :asc)
+
+      assert_equal Array, result.class
+      assert_equal GithubSearch::Repository, result.first.class
+
+      result.each do |bla|
+        puts bla.updated_at
+      end
+
+      assert result[1].updated_at > result[0].updated_at
+      assert result[2].updated_at > result[1].updated_at
+      assert result[3].updated_at > result[2].updated_at
+    end
+
+  end
+
 end

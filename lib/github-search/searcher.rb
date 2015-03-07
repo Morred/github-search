@@ -7,6 +7,7 @@ module GithubSearch
     def search(*args, opts)
       search_string_builder = SearchStringBuilder.new
       search_string = search_string_builder.build_search_string(args, opts)
+      puts search_string
 
       response = Faraday.get("#{API_URL}/#{@path}#{search_string}")
       items = JSON.parse(response.body)["items"]

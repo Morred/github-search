@@ -26,7 +26,7 @@ result = github.issues.search("test", "foo", repo: "Morred/github-search", langu
 
 Search for any number of keywords as strings (such as "test" and "foo" in the above example) as well as search qualifiers (such as repo and language in the above example).
 
-Currently supported issue search qualifiers are:
+###Currently supported issue search qualifiers are:
 
 **assignee**  
 Finds issues or pull requests that are assigned to a certain user.  
