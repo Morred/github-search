@@ -48,7 +48,7 @@ class RepositoryTest < Minitest::Test
       assert_equal "https://api.github.com/repos/Morred/github-search/commits{/sha}", result.first.commits_url
       assert_equal "https://api.github.com/repos/Morred/github-search/git/commits{/sha}", result.first.git_commits_url
       assert_equal "https://api.github.com/repos/Morred/github-search/comments{/number}", result.first.comments_url
-      assert_equal "https://api.github.com/repos/Morred/github-search/issues/comments/{number}", result.first.issue_comment_url
+      assert_equal "https://api.github.com/repos/Morred/github-search/issues/comments{/number}", result.first.issue_comment_url
       assert_equal "https://api.github.com/repos/Morred/github-search/contents/{+path}", result.first.contents_url
       assert_equal "https://api.github.com/repos/Morred/github-search/compare/{base}...{head}", result.first.compare_url
       assert_equal "https://api.github.com/repos/Morred/github-search/merges", result.first.merges_url
@@ -62,14 +62,14 @@ class RepositoryTest < Minitest::Test
       assert_equal "https://api.github.com/repos/Morred/github-search/releases{/id}", result.first.releases_url
 
       assert_equal "2015-01-14T15:24:13Z", result.first.created_at
-      assert_equal "2015-01-18T15:06:53Z", result.first.updated_at
-      assert_equal "2015-01-18T15:06:52Z", result.first.pushed_at
+      assert_equal "2015-02-22T13:11:59Z", result.first.updated_at
+      assert_equal "2015-03-07T14:49:15Z", result.first.pushed_at
       assert_equal "git://github.com/Morred/github-search.git", result.first.git_url
       assert_equal "git@github.com:Morred/github-search.git", result.first.ssh_url
       assert_equal "https://github.com/Morred/github-search.git", result.first.clone_url
       assert_equal "https://github.com/Morred/github-search", result.first.svn_url
       assert_equal nil, result.first.homepage
-      assert_equal 0, result.first.size
+      assert_equal 280, result.first.size
       assert_equal 0, result.first.stargazers_count
       assert_equal 0, result.first.watchers_count
       assert_equal "Ruby", result.first.language
@@ -79,50 +79,104 @@ class RepositoryTest < Minitest::Test
       assert_equal false, result.first.has_pages
       assert_equal 0, result.first.forks_count
       assert_equal nil, result.first.mirror_url
-      assert_equal 3, result.first.open_issues_count
+      assert_equal 5, result.first.open_issues_count
       assert_equal 0, result.first.forks
-      assert_equal 3, result.first.open_issues
+      assert_equal 5, result.first.open_issues
       assert_equal 0, result.first.watchers
       assert_equal "master", result.first.default_branch
-      assert_equal 1.5138767, result.first.score
+      assert_equal 1.5003858, result.first.score
     end
   end
 
-  def test_can_sort
-    VCR.use_cassette('search_repositories_sort') do
+  def test_can_sort_by_updated_at
+    VCR.use_cassette('search_repositories_sort_by_updated_at') do
       github = GithubSearch::Searcher.new
       result = github.repos.search("client", user: "jwaterfaucett", sort: :updated)
 
       assert_equal Array, result.class
       assert_equal GithubSearch::Repository, result.first.class
 
-      result.each do |bla|
-        puts bla.updated_at
+      previous_result_item = nil
+      result.each do |result_item|
+        puts result_item.updated_at
+        if previous_result_item
+          assert result_item.updated_at <= previous_result_item.updated_at
+        end
+        previous_result_item = result_item
       end
-
-      assert result[1].updated_at < result[0].updated_at
-      assert result[2].updated_at < result[1].updated_at
-      assert result[3].updated_at < result[2].updated_at
     end
   end
 
-  def test_can_order
-    VCR.use_cassette('search_repositories_order') do
+  def test_can_sort_by_stars
+    VCR.use_cassette('search_repositories_sort_by_stars') do
       github = GithubSearch::Searcher.new
-      result = github.repos.search("client",user: "jwaterfaucett", sort: :updated, order: :asc)
+      result = github.repos.search("client", user: "jwaterfaucett", sort: :stars)
 
       assert_equal Array, result.class
       assert_equal GithubSearch::Repository, result.first.class
 
-      result.each do |bla|
-        puts bla.updated_at
+      previous_result_item = nil
+      result.each do |result_item|
+        if previous_result_item
+          assert result_item.stargazers_count <= previous_result_item.stargazers_count
+        end
+        previous_result_item = result_item
       end
-
-      assert result[1].updated_at > result[0].updated_at
-      assert result[2].updated_at > result[1].updated_at
-      assert result[3].updated_at > result[2].updated_at
     end
+  end
 
+  def test_can_sort_by_forks
+    VCR.use_cassette('search_repositories_sort_by_forks') do
+      github = GithubSearch::Searcher.new
+      result = github.repos.search("client", user: "jwaterfaucett", sort: :forks)
+
+      assert_equal Array, result.class
+      assert_equal GithubSearch::Repository, result.first.class
+
+      previous_result_item = nil
+      result.each do |result_item|
+        if previous_result_item
+          assert result_item.forks_count <= previous_result_item.forks_count
+        end
+        previous_result_item = result_item
+      end
+    end
+  end
+
+  def test_can_order_ascending
+    VCR.use_cassette('search_repositories_order_ascending') do
+      github = GithubSearch::Searcher.new
+      result = github.repos.search("client",user: "jwaterfaucett", sort: :stars, order: :asc)
+
+      assert_equal Array, result.class
+      assert_equal GithubSearch::Repository, result.first.class
+
+      previous_result_item = nil
+      result.each do |result_item|
+        if previous_result_item
+          assert result_item.stargazers_count >= previous_result_item.stargazers_count
+        end
+        previous_result_item = result_item
+      end
+    end
+  end
+
+  def test_can_order_descending
+    VCR.use_cassette('search_repositories_order_descending') do
+      github = GithubSearch::Searcher.new
+      result = github.repos.search("client",user: "jwaterfaucett", sort: :stars, order: :desc)
+
+      assert_equal Array, result.class
+      assert_equal GithubSearch::Repository, result.first.class
+
+      previous_result_item = nil
+      result.each do |result_item|
+        if previous_result_item
+          assert result_item.stargazers_count <= previous_result_item.stargazers_count
+        end
+        previous_result_item = result_item
+      end
+    end
   end
 
 end
