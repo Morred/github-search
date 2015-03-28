@@ -104,37 +104,44 @@ result = github.repositories.search("test", user: "Morred", sort: :stars, order:
 
 Issues can be sorted by:
 
-**:comments**
+**:comments**  
 Issues are sorted by comments count.
 
-**:created**
+**:created**  
 Issues are sorted by their created_at date.
 
-**:updated**
+**:updated**  
 Issues are sorted by their updated_at date.
 
 ### Sorting Repositories
 
 Repositories can be sorted by:
 
-**:stars**
+**:stars**  
 Repositories are sorted by stars count.
 
-**:forks**
+**:forks**  
 Repositories are sorted by forks count.
 
-**:updated**
+**:updated**  
 Somewhat counterintuitively, repositories are *not* sorted by updated_at, but instead by pushed_at.
-
-*By default, results are sorted by best match.*
 
 ### Sorting Users
 
+Users can be sorted by:
 
+**:followers**  
+Users are sorted by followers count.
+
+**:repositories**  
+Users are sorted by repositories count.
+
+**:joined**
+Users are sorted by their joined_at date.
 
 ### Ordering
 
-You can orde
+You can only order your search results when a sort parameter is provided, using **:asc** for ascending and **:desc** for descending. The default order is descending. 
 
 ## Installation
 
