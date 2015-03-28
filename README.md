@@ -3,19 +3,21 @@
 
 A wrapper gem for the Github Search API.
 
+Note: The Github Search API has a custom rate limit. For requests using Basic Authentication, OAuth, or client ID and secret, you can make up to 20 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 5 requests per minute.
+
 See the official documentation for the Github Search API here: https://developer.github.com/v3/search/
 
 ## Table of Contents
-+ [Searching](https://github.com/Morred/github-search#searching)
+1. [Searching](https://github.com/Morred/github-search#searching)
   + [Searching Issues](https://github.com/Morred/github-search#searching-issues)
-  + [Searching Repositories](#)
-  + [Searching Users](#)
-+ [Sorting and Ordering](https://github.com/Morred/github-search#sorting-and-ordering)
+  + [Searching Repositories](https://github.com/Morred/github-search#searching-repositories)
+  + [Searching Users](https://github.com/Morred/github-search#searching-users)
+2. [Sorting and Ordering](https://github.com/Morred/github-search#sorting-and-ordering)
   + [Sorting Issues](https://github.com/Morred/github-search#sorting-issues)
   + [Sorting Repositories](https://github.com/Morred/github-search#sorting-repositories)
   + [Sorting Users](https://github.com/Morred/github-search#sorting-users)
   + [Ordering](https://github.com/Morred/github-search#ordering)
-+ [Installation](https://github.com/Morred/github-search#installation)
+3. [Installation](https://github.com/Morred/github-search#installation)
 
 ## Searching
 
@@ -38,7 +40,7 @@ result = github.issues.search("test", "foo", repo: "Morred/github-search", langu
 
 Search for any number of keywords as strings (such as "test" and "foo" in the above example) as well as search qualifiers (such as repo and language in the above example).
 
-### Currently supported issue search qualifiers are:
+#### Currently supported issue search qualifiers are:
 
 **assignee**  
 Finds issues or pull requests that are assigned to a certain user.  
@@ -57,7 +59,6 @@ Filters issues or pull requests based on date of creation.
 *Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
 **in**  
 Qualifies which fields are searched. With this qualifier you can restrict the search to just the title, body, comments, or any combination of these.  
-*Values: title, body, comment*  
 **involves**  
 Finds issues or pull requests that were either created by a certain user, assigned to that user, mention that user, or were commented on by that user.  
 **is**  
@@ -67,6 +68,7 @@ Searches for items within repositories that match a certain state, such as open,
 Filters issues or pull requests based on their labels.  
 **language**  
 Searches for issues or pull requests within repositories that match a certain language.  
+*Values: e.g. Ruby, C++, Swift*  
 **mentions**  
 Finds issues or pull requests that mention a certain user.  
 **merged**  
@@ -89,7 +91,71 @@ With this qualifier you can restrict the search to issues or pull request only.
 Filters issues or pull requests based on when they were last updated.  
 *Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
 **user**  
+Limits searches to a specific user.
+
+## Searching Repositories
+
+Example:
+```ruby
+result = github.repositories.search("foo", user: "Morred", language: "Ruby")
+```
+
+Search for any number of keywords as strings (such as "foo" in the above example) as well as search qualifiers (such as user and language in the above example).
+
+#### Currently supported repository search qualifiers are:
+
+**created**
+Filters repositories based on date of creation.  
+*Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
+**forks**  
+Filters repositories based on the number of forks, and/or whether forked repositories should be included in the results at all.  
+**in**  
+Qualifies which fields are searched. With this qualifier you can restrict the search to just the repository name, description, readme, or any combination of these.
+*Values: name, description, readme*  
+**language**  
+Searches repositories based on the language they’re written in.  
+*Values: e.g. Ruby, C++, Swift*  
+**pushed**  
+Filters repositories based on when they were last updated.  
+*Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
+**size**  
+Finds repositories that match a certain size (in kilobytes).  
+**stars**  
+Searches repositories based on the number of stars.  
+**user**  
 Limits searches to a specific user.  
+
+## Searching Users
+
+Example:
+```ruby
+result = github.users.search("morred", repos: ">10", language: "Ruby")
+```
+
+Search for any number of keywords as strings (such as "morred" in the above example) as well as search qualifiers (such as repos and language in the above example).
+
+#### Currently supported user search qualifiers are:
+
+**created**  
+Filter users based on when they joined.  
+*Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
+
+**followers**  
+Filter users based on the number of followers they have.  
+**in**  
+Qualifies which fields are searched. With this qualifier you can restrict the search to just the username, public email, full name, or any combination of these.  
+**language**  
+Search for users that have repositories that match a certain language.  
+*Values: e.g. Ruby, C++, Swift*  
+**location**  
+Filter users by the location indicated in their profile.  
+*Values: e.g. Germany, Tokyo*  
+**repos**  
+Filters users based on the number of repositories they have.
+*Values: e.g. 20, >10, <100*  
+**type**  
+With this qualifier you can restrict the search to just personal accounts or just organization accounts.  
+*Values: User, Organization*  
 
 ## Sorting and Ordering
 
@@ -104,49 +170,49 @@ result = github.repositories.search("test", user: "Morred", sort: :stars, order:
 
 Issues can be sorted by:
 
-**:comments**  
+**comments**  
 Issues are sorted by comments count.
 
-**:created**  
+**created**  
 Issues are sorted by their created_at date.
 
-**:updated**  
+**updated**  
 Issues are sorted by their updated_at date.
 
 ### Sorting Repositories
 
 Repositories can be sorted by:
 
-**:stars**  
+**stars**  
 Repositories are sorted by stars count.
 
-**:forks**  
+**forks**  
 Repositories are sorted by forks count.
 
-**:updated**  
+**updated**  
 Somewhat counterintuitively, repositories are *not* sorted by updated_at, but instead by pushed_at.
 
 ### Sorting Users
 
 Users can be sorted by:
 
-**:followers**  
+**followers**  
 Users are sorted by followers count.
 
-**:repositories**  
+**repositories**  
 Users are sorted by repositories count.
 
-**:joined**  
+**joined**  
 Users are sorted by their joined_at date.
 
 ### Ordering
 
 You can only order your search results when a sort parameter is provided.
 
-**:asc**  
+**asc**  
 Ascending order.
 
-**:desc**  
+**desc**  
 Descending order.
 
 The default order is descending. 

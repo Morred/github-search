@@ -47,5 +47,9 @@ module GithubSearch
       @score          = attributes["score"]
     end
 
+    def self.sort_options
+      [:comments, :created, :updated]
+    end
+
   end
 end

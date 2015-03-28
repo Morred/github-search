@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/search/issues?q=test%20issue%20repo:Morred/github-search%20label:enhancement&sort=comments
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Sun, 05 Apr 2015 06:19:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '10'
+      X-Ratelimit-Remaining:
+      - '8'
+      X-Ratelimit-Reset:
+      - '1428214852'
+      Cache-Control:
+      - no-cache
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 7E1253F7:54C3:974A23:5520D408
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding
+      X-Served-By:
+      - 4c8b2d4732c413f4b9aefe394bd65569
+    body:
+      encoding: UTF-8
+      string: '{"total_count":2,"incomplete_results":false,"items":[{"url":"https://api.github.com/repos/Morred/github-search/issues/1","labels_url":"https://api.github.com/repos/Morred/github-search/issues/1/labels{/name}","comments_url":"https://api.github.com/repos/Morred/github-search/issues/1/comments","events_url":"https://api.github.com/repos/Morred/github-search/issues/1/events","html_url":"https://github.com/Morred/github-search/issues/1","id":54451965,"number":1,"title":"This
+        is a test issue","user":{"login":"Morred","id":4008608,"avatar_url":"https://avatars.githubusercontent.com/u/4008608?v=3","gravatar_id":"","url":"https://api.github.com/users/Morred","html_url":"https://github.com/Morred","followers_url":"https://api.github.com/users/Morred/followers","following_url":"https://api.github.com/users/Morred/following{/other_user}","gists_url":"https://api.github.com/users/Morred/gists{/gist_id}","starred_url":"https://api.github.com/users/Morred/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Morred/subscriptions","organizations_url":"https://api.github.com/users/Morred/orgs","repos_url":"https://api.github.com/users/Morred/repos","events_url":"https://api.github.com/users/Morred/events{/privacy}","received_events_url":"https://api.github.com/users/Morred/received_events","type":"User","site_admin":false},"labels":[{"url":"https://api.github.com/repos/Morred/github-search/labels/enhancement","name":"enhancement","color":"84b6eb"}],"state":"open","locked":false,"assignee":null,"milestone":null,"comments":2,"created_at":"2015-01-15T14:01:13Z","updated_at":"2015-03-28T06:06:11Z","closed_at":null,"body":"This
+        is a test issue.","score":8.851841},{"url":"https://api.github.com/repos/Morred/github-search/issues/2","labels_url":"https://api.github.com/repos/Morred/github-search/issues/2/labels{/name}","comments_url":"https://api.github.com/repos/Morred/github-search/issues/2/comments","events_url":"https://api.github.com/repos/Morred/github-search/issues/2/events","html_url":"https://github.com/Morred/github-search/issues/2","id":54452074,"number":2,"title":"This
+        is another test issue.","user":{"login":"Morred","id":4008608,"avatar_url":"https://avatars.githubusercontent.com/u/4008608?v=3","gravatar_id":"","url":"https://api.github.com/users/Morred","html_url":"https://github.com/Morred","followers_url":"https://api.github.com/users/Morred/followers","following_url":"https://api.github.com/users/Morred/following{/other_user}","gists_url":"https://api.github.com/users/Morred/gists{/gist_id}","starred_url":"https://api.github.com/users/Morred/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/Morred/subscriptions","organizations_url":"https://api.github.com/users/Morred/orgs","repos_url":"https://api.github.com/users/Morred/repos","events_url":"https://api.github.com/users/Morred/events{/privacy}","received_events_url":"https://api.github.com/users/Morred/received_events","type":"User","site_admin":false},"labels":[{"url":"https://api.github.com/repos/Morred/github-search/labels/enhancement","name":"enhancement","color":"84b6eb"}],"state":"open","locked":false,"assignee":null,"milestone":null,"comments":1,"created_at":"2015-01-15T14:02:14Z","updated_at":"2015-03-28T06:06:22Z","closed_at":null,"body":"This
+        is another test issue.","score":8.851852}]}'
+    http_version: 
+  recorded_at: Sun, 05 Apr 2015 06:19:53 GMT
+recorded_with: VCR 2.9.3

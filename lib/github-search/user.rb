@@ -43,5 +43,9 @@ module GithubSearch
       @score                  = attributes["score"]
     end
 
+    def self.sort_options
+      [:followers, :repositories, :joined]
+    end
+
   end
 end
