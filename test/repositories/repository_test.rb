@@ -88,7 +88,7 @@ class RepositoryTest < Minitest::Test
     end
   end
 
-  def test_can_sort_by_updated_at
+  def test_can_sort_by_pushed_at
     VCR.use_cassette('search_repositories_sort_by_updated_at') do
       github = GithubSearch::Searcher.new
       result = github.repos.search("client", user: "jwaterfaucett", sort: :updated)
@@ -98,9 +98,8 @@ class RepositoryTest < Minitest::Test
 
       previous_result_item = nil
       result.each do |result_item|
-        puts result_item.updated_at
         if previous_result_item
-          assert result_item.updated_at <= previous_result_item.updated_at
+          assert result_item.pushed_at <= previous_result_item.pushed_at
         end
         previous_result_item = result_item
       end
