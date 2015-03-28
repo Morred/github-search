@@ -136,12 +136,20 @@ Users are sorted by followers count.
 **:repositories**  
 Users are sorted by repositories count.
 
-**:joined**
+**:joined**  
 Users are sorted by their joined_at date.
 
 ### Ordering
 
-You can only order your search results when a sort parameter is provided, using **:asc** for ascending and **:desc** for descending. The default order is descending. 
+You can only order your search results when a sort parameter is provided.
+
+**:asc**  
+Ascending order.
+
+**:desc**  
+Descending order.
+
+The default order is descending. 
 
 ## Installation
 
