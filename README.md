@@ -1,9 +1,21 @@
-# GithubSearch 
+# GithubSearch Readme
 [![Build Status](https://travis-ci.org/Morred/github-search.svg?branch=master)](https://travis-ci.org/Morred/github-search) [![Code Climate](https://codeclimate.com/github/Morred/github-search/badges/gpa.svg)](https://codeclimate.com/github/Morred/github-search)
 
 A wrapper gem for the Github Search API.
 
 See the official documentation for the Github Search API here: https://developer.github.com/v3/search/
+
+## Table of Contents
++ [Searching](https://github.com/Morred/github-search#searching)
+  + [Searching Issues](https://github.com/Morred/github-search#searching-issues)
+  + [Searching Repositories](#)
+  + [Searching Users](#)
++ [Sorting and Ordering](https://github.com/Morred/github-search#sorting-and-ordering)
+  + [Sorting Issues](https://github.com/Morred/github-search#sorting-issues)
+  + [Sorting Repositories](https://github.com/Morred/github-search#sorting-repositories)
+  + [Sorting Users](https://github.com/Morred/github-search#sorting-users)
+  + [Ordering](https://github.com/Morred/github-search#ordering)
++ [Installation](https://github.com/Morred/github-search#installation)
 
 ## Searching
 
@@ -26,7 +38,7 @@ result = github.issues.search("test", "foo", repo: "Morred/github-search", langu
 
 Search for any number of keywords as strings (such as "test" and "foo" in the above example) as well as search qualifiers (such as repo and language in the above example).
 
-###Currently supported issue search qualifiers are:
+### Currently supported issue search qualifiers are:
 
 **assignee**  
 Finds issues or pull requests that are assigned to a certain user.  
@@ -78,6 +90,51 @@ Filters issues or pull requests based on when they were last updated.
 *Values: e.g. >2014-12-25, <=2015-01-17, 2019-02-03*  
 **user**  
 Limits searches to a specific user.  
+
+## Sorting and Ordering
+
+Example:
+```ruby
+result = github.repositories.search("test", user: "Morred", sort: :stars, order: :asc)
+```
+
+**By default, all results are sorted by best match. The default order is descending.**
+
+### Sorting Issues
+
+Issues can be sorted by:
+
+**:comments**
+Issues are sorted by comments count.
+
+**:created**
+Issues are sorted by their created_at date.
+
+**:updated**
+Issues are sorted by their updated_at date.
+
+### Sorting Repositories
+
+Repositories can be sorted by:
+
+**:stars**
+Repositories are sorted by stars count.
+
+**:forks**
+Repositories are sorted by forks count.
+
+**:updated**
+Somewhat counterintuitively, repositories are *not* sorted by updated_at, but instead by pushed_at.
+
+*By default, results are sorted by best match.*
+
+### Sorting Users
+
+
+
+### Ordering
+
+You can orde
 
 ## Installation
 
