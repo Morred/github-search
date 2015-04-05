@@ -14,7 +14,7 @@ class UserTest < Minitest::Test
       assert_equal 3, result.length
       assert_equal GithubSearch::User, result.first.class
 
-      # Check that the fields are accessible by our model
+      # Check that the fields are accessible by the model
       assert_equal 4008608, result.first.id
       assert_equal "Morred", result.first.login
       assert_equal "https://avatars.githubusercontent.com/u/4008608?v=3", result.first.avatar_url
@@ -35,4 +35,7 @@ class UserTest < Minitest::Test
       assert_equal 61.729008, result.first.score
     end
   end
+
+
+
 end

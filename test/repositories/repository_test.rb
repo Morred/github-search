@@ -14,7 +14,7 @@ class RepositoryTest < Minitest::Test
       assert_equal 1, result.length
       assert_equal GithubSearch::Repository, result.first.class
 
-      # Check that the fields are accessible by our model
+      # Check that the fields are accessible by the model
       assert_equal 29250518, result.first.id
       assert_equal "github-search", result.first.name
       assert_equal "Morred/github-search", result.first.full_name
@@ -88,7 +88,7 @@ class RepositoryTest < Minitest::Test
     end
   end
 
-  def test_can_sort_by_pushed_at
+  def test_can_sort_by_updated
     VCR.use_cassette('search_repositories_sort_by_updated_at') do
       github = GithubSearch::Searcher.new
       result = github.repos.search("client", user: "jwaterfaucett", sort: :updated)
