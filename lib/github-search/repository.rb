@@ -143,5 +143,9 @@ module GithubSearch
       @score                = attributes["score"]
     end
 
+    def self.sort_options
+      [:stars, :forks, :updated]
+    end
+
   end
 end

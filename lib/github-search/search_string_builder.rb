@@ -4,10 +4,10 @@ require 'json'
 module GithubSearch
   class SearchStringBuilder
 
-    def build_search_string(args, opts)
+    def build_search_string(args, opts, model)
 
       args_string = args_untangler(args)
-      opts_string = opts_untangler(opts)
+      opts_string = opts_untangler(opts, model)
 
       search_string = args_string
       search_string += "+" if opts_string
@@ -24,8 +24,8 @@ module GithubSearch
       search_params
     end
 
-    def opts_untangler(opts)
-      sort_string = sort_untangler(opts[:sort]) if opts[:sort]
+    def opts_untangler(opts, model)
+      sort_string = sort_untangler(opts[:sort], model) if opts[:sort]
       opts.delete(:sort)
 
       order_string = order_untangler(opts[:order]) if opts[:order]
@@ -41,12 +41,12 @@ module GithubSearch
       search_params += order_string || ""
     end
 
-    def sort_untangler(sort_param)
-      if [:stars, :forks, :updated].include?(sort_param)
+    def sort_untangler(sort_param, model)
+      if model.sort_options.include?(sort_param)
         sort_string = "&sort=#{sort_param.to_s}"
       else
         # todo: error handling
-        puts "You can only sort repositories for :stars, :forks or :updated (default is best match)"
+        puts "You can only sort a #{model} for #{model.sort_options}. (default is best match)"
       end
     end
 
