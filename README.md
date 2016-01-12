@@ -5,7 +5,7 @@ A wrapper gem for the Github Search API.
 
 ### General info
 + The GitHub Search API provides up to 1,000 results for each search.
-+ The Github Search API has a custom rate limit. For requests using Basic Authentication, OAuth, or client ID and secret, you can make up to 20 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 5 requests per minute.
++ The GitHub Search API has a custom rate limit. For requests using Basic Authentication, OAuth, or client ID and secret, you can make up to 30 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
 + For queries that exceed the time limit, the API returns the matches that were already found prior to the timeout, and the response has the incomplete_results property set to true.
 
 See the official documentation for the Github Search API here: https://developer.github.com/v3/search/
@@ -15,6 +15,7 @@ See the official documentation for the Github Search API here: https://developer
   + [Searching Issues](https://github.com/Morred/github-search#searching-issues)
   + [Searching Repositories](https://github.com/Morred/github-search#searching-repositories)
   + [Searching Users](https://github.com/Morred/github-search#searching-users)
+  + [Searching Code](https://github.com/Morred/github-search#searching-code)
 2. [Sorting and Ordering](https://github.com/Morred/github-search#sorting-and-ordering)
   + [Sorting Issues](https://github.com/Morred/github-search#sorting-issues)
   + [Sorting Repositories](https://github.com/Morred/github-search#sorting-repositories)
@@ -159,6 +160,10 @@ Filters users based on the number of repositories they have.
 **type**  
 With this qualifier you can restrict the search to just personal accounts or just organization accounts.  
 *Values: User, Organization*  
+
+### Searching Code  
+
+**TODO**  
 
 ## Sorting and Ordering
 
