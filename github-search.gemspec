@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = GithubSearch::VERSION
   spec.authors       = ["Laura Eck"]
   spec.email         = ["laura.tatsutahime@gmail.com"]
-  spec.summary       = %q{A wrapper for the Github Search API.}
-  spec.description   = %q{This gem wraps the Github Search API and allows you to search users, repositories and issues.}
+  spec.summary       = %q{A wrapper for the Github Search API}
+  spec.description   = %q{This gem wraps the Github Search API and allows you to search users, repositories and issues}
   spec.homepage      = "https://github.com/Morred/github-search"
   spec.license       = "MIT"
 
